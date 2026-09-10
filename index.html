@@ -1,0 +1,477 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Presentation Music Library</title>
+<style>
+:root{--bg:#070b14;--panel:#0e1626;--line:#22314a;--text:#eef5ff;--muted:#9fb0c8;--accent:#55d6ff;--accent2:#9b7cff}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 10% 0%,#10213b 0,#070b14 42%);color:var(--text);font-family:Inter,"Noto Sans Thai",system-ui,sans-serif}
+header{padding:52px 7vw 34px;border-bottom:1px solid var(--line);background:linear-gradient(135deg,rgba(85,214,255,.10),rgba(155,124,255,.08))}
+.badge{display:inline-block;padding:7px 12px;border:1px solid #2d4867;border-radius:999px;color:var(--accent);font-size:13px}
+h1{font-size:clamp(32px,5vw,58px);margin:16px 0 8px;letter-spacing:-1px}.subtitle{color:var(--muted);max-width:760px;line-height:1.7}
+.wrap{width:min(1180px,90vw);margin:28px auto 60px}.toolbar{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:24px}
+input{flex:1;min-width:240px;background:#0b1220;border:1px solid var(--line);border-radius:12px;padding:13px 16px;color:white;font-size:15px}
+.filter{border:1px solid var(--line);background:#0b1220;color:var(--text);border-radius:12px;padding:12px 14px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(330px,1fr));gap:18px}
+.card{background:rgba(14,22,38,.92);border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 12px 30px rgba(0,0,0,.18)}
+.cardhead{display:flex;gap:14px;padding:20px;border-bottom:1px solid var(--line);background:linear-gradient(90deg,rgba(85,214,255,.08),transparent)}
+.emoji{font-size:32px}h2{margin:0 0 4px;font-size:20px}.cardhead p{margin:0;color:var(--accent);font-size:13px}
+.track{display:grid;grid-template-columns:28px 1fr auto;gap:10px;align-items:center;padding:13px 16px;border-bottom:1px solid #18243a}
+.track:last-child{border-bottom:0}.num{color:#62758f;font-size:13px}.trackinfo{display:flex;flex-direction:column;gap:2px}.trackinfo b{font-size:14px}.trackinfo span{font-size:12px;color:var(--muted)}
+.listen{font-size:12px;text-decoration:none;color:#06101b;background:var(--accent);padding:7px 9px;border-radius:8px;font-weight:700}
+.note{margin:28px 0;padding:16px 18px;border:1px solid #31425e;border-radius:14px;color:var(--muted);line-height:1.7;background:#0b1220}
+footer{text-align:center;color:#6f819a;padding:30px;border-top:1px solid var(--line);font-size:13px}
+@media(max-width:600px){.track{grid-template-columns:24px 1fr}.listen{grid-column:2;width:max-content}}
+</style></head>
+<body>
+<header><div class="badge">🎧 STUDENT PRESENTATION MUSIC LIBRARY</div>
+<h1>เพลงสำหรับประกอบการพรีเซนต์</h1>
+<div class="subtitle">คลังเพลงแนะนำสำหรับนักเรียนและคุณครู แบ่งตามรายวิชา พร้อมแนวเพลงและเพลงตัวอย่าง 5 เพลงต่อวิชา เพื่อช่วยเลือกเพลงให้เข้ากับอารมณ์ของเนื้อหา</div></header>
+<main class="wrap">
+<div class="toolbar"><input id="search" placeholder="🔎 ค้นหารายวิชา แนวเพลง หรือชื่อเพลง..."><select id="genre" class="filter"><option value="">ทุกแนว</option></select></div>
+<div class="note">💡 <b>การใช้งาน:</b> ปุ่ม “ฟัง / ค้นหา” จะเปิดผลการค้นหาเพลงบน YouTube เพื่อให้นักเรียนตรวจสอบเพลงและเลือกเวอร์ชันที่เหมาะสมก่อนใช้จริง หากต้องการนำเพลงที่มีลิขสิทธิ์ไปใช้ในวิดีโอหรือเผยแพร่ ควรตรวจสอบสิทธิ์การใช้งานก่อน</div>
+<div class="grid" id="grid">
+    <section class="card" data-subject="วิทยาศาสตร์" data-genre="Electronic / Ambient / Futuristic">
+      <div class="cardhead"><span class="emoji">🧪</span><div><h2>วิทยาศาสตร์</h2><p>Electronic / Ambient / Futuristic</p></div></div>
+      <div class="tracks">
+        <div class="track">
+          <div class="num">1</div>
+          <div class="trackinfo"><b>Cornfield Chase</b><span>Hans Zimmer</span></div>
+          <a class="listen" href="https://www.youtube.com/results?search_query=Cornfield+Chase+Hans+Zimmer" target="_blank" rel="noopener">▶ ฟัง / ค้นหา</a>
+        </div>
+        <div class="track">
+          <div class="num">2</div>
+          <div class="trackinfo"><b>Experience</b><span>Ludovico Einaudi</span></div>
+          <a class="listen" href="https://www.youtube.com/results?search_query=Experience+Ludovico+Einaudi" target="_blank" rel="noopener">▶ ฟัง / ค้นหา</a>
+        </div>
+        <div class="track">
+          <div class="num">3</div>
+          <div class="trackinfo"><b>The Grid</b><span>Daft Punk</span></div>
+          <a class="listen" href="https://www.youtube.com/results?search_query=The+Grid+Daft+Punk" target="_blank" rel="noopener">▶ ฟัง / ค้นหา</a>
+        </div>
+        <div class="track">
+          <div class="num">4</div>
+          <div class="trackinfo"><b>A Moment Apart</b><span>ODESZA</span></div>
+          <a class="listen" href="https://www.youtube.com/results?search_query=A+Moment+Apart+ODESZA" target="_blank" rel="noopener">▶ ฟัง / ค้นหา</a>
+        </div>
+        <div class="track">
+          <div class="num">5</div>
+          <div class="trackinfo"><b>We Can Make the World Stop</b><span>The Glitch Mob</span></div>
+          <a class="listen" href="https://www.youtube.com/results?search_query=We+Can+Make+the+World+Stop+The+Glitch+Mob" target="_blank" rel="noopener">▶ ฟัง / ค้นหา</a>
+        </div></div>
+    </section>
+    <section class="card" data-subject="ดาราศาสตร์ / เทคโนโลยีอวกาศ" data-genre="Cinematic / Space Ambient">
+      <div class="cardhead"><span class="emoji">🌌</span><div><h2>ดาราศาสตร์ / เทคโนโลยีอวกาศ</h2><p>Cinematic / Space Ambient</p></div></div>
+      <div class="tracks">
+        <div class="track">
+          <div class="num">1</div>
+          <div class="trackinfo"><b>No Time for Caution</b><span>Hans Zimmer</span></div>
+          <a class="listen" href="https://www.youtube.com/results?search_query=No+Time+for+Caution+Hans+Zimmer" target="_blank" rel="noopener">▶ ฟัง / ค้นหา</a>
+        </div>
+        <div class="track">
+          <div class="num">2</div>
+          <div class="trackinfo"><b>Cornfield Chase</b><span>Hans Zimmer</span></div>
+          <a class="listen" href="https://www.youtube.com/results?search_query=Cornfield+Chase+Hans+Zimmer" target="_blank" rel="noopener">▶ ฟัง / ค้นหา</a>
+        </div>
+        <div class="track">
+          <div class="num">3</div>
+          <div class="trackinfo"><b>Outro</b><span>M83</span></div>
+          <a class="listen" href="https://www.youtube.com/results?search_query=Outro+M83" target="_blank" rel="noopener">▶ ฟัง / ค้นหา</a>
+        </div>
+        <div class="track">
+          <div class="num">4</div>
+          <div class="trackinfo"><b>Starlight</b><span>Muse</span></div>
+          <a class="listen" href="https://www.youtube.com/results?search_query=Starlight+Muse" target="_blank" rel="noopener">▶ ฟัง / ค้นหา</a>
+        </div>
+        <div class="track">
+          <div class="num">5</div>
+          <div class="trackinfo"><b>An Ending (Ascent)</b><span>Brian Eno</span></div>
+          <a class="listen" href="https://www.youtube.com/results?search_query=An+Ending+%28Ascent%29+Brian+Eno" target="_blank" rel="noopener">▶ ฟัง / ค้นหา</a>
+        </div></div>
+    </section>
+    <section class="card" data-subject="คอมพิวเตอร์ / IoT / AI" data-genre="Electronic / Synthwave">
+      <div class="cardhead"><span class="emoji">💻</span><div><h2>คอมพิวเตอร์ / IoT / AI</h2><p>Electronic / Synthwave</p></div></div>
+      <div class="tracks">
+        <div class="track">
+          <div class="num">1</div>
+          <div class="trackinfo"><b>Harder, Better, Faster, Stronger</b><span>Daft Punk</span></div>
+          <a class="listen" href="https://www.youtube.com/results?search_query=Harder%2C+Better%2C+Faster%2C+Stronger+Daft+Punk" target="_blank" rel="noopener">▶ ฟัง / ค้นหา</a>
+        </div>
+        <div class="track">
+          <div class="num">2</div>
+          <div class="trackinfo"><b>Derezzed</b><span>Daft Punk</span></div>
+          <a class="listen" href="https://www.youtube.com/results?search_query=Derezzed+Daft+Punk" target="_blank" rel="noopener">▶ ฟัง / ค้นหา</a>
+        </div>
+        <div class="track">
+          <div class="num">3</div>
+          <div class="trackinfo"><b>A Real Hero</b><span>College</span></div>
+          <a class="listen" href="https://www.youtube.com/results?search_query=A+Real+Hero+College" target="_blank" rel="noopener">▶ ฟัง / ค้นหา</a>
+        </div>
+        <div class="track">
+          <div class="num">4</div>
+          <div class="trackinfo"><b>Genesis</b><span>Justice</span></div>
+          <a class="listen" href="https://www.youtube.com/results?search_query=Genesis+Justice" target="_blank" rel="noopener">▶ ฟัง / ค้นหา</a>
+        </div>
+        <div class="track">
+          <div class="num">5</div>
+          <div class="trackinfo"><b>Resonance</b><span>HOME</span></div>
+          <a class="listen" href="https://www.youtube.com/results?search_query=Resonance+HOME" target="_blank" rel="noopener">▶ ฟัง / ค้นหา</a>
+        </div></div>
+    </section>
+    <section class="card" data-subject="คณิตศาสตร์" data-genre="Minimal / Electronic / Piano">
+      <div class="cardhead"><span class="emoji">📐</span><div><h2>คณิตศาสตร์</h2><p>Minimal / Electronic / Piano</p></div></div>
+      <div class="tracks">
+        <div class="track">
+          <div class="num">1</div>
+          <div class="trackinfo"><b>Intro</b><span>The xx</span></div>
+          <a class="listen" href="https://www.youtube.com/results?search_query=Intro+The+xx" target="_blank" rel="noopener">▶ ฟัง / ค้นหา</a>
+        </div>
+        <div class="track">
+          <div class="num">2</div>
+          <div class="trackinfo"><b>Time</b><span>Hans Zimmer</span></div>
+          <a class="listen" href="https://www.youtube.com/results?search_query=Time+Hans+Zimmer" target="_blank" rel="noopener">▶ ฟัง / ค้นหา</a>
+        </div>
+        <div class="track">
+          <div class="num">3</div>
+          <div class="trackinfo"><b>We Move Lightly</b><span>Dustin O’Halloran</span></div>
+          <a class="listen" href="https://www.youtube.com/results?search_query=We+Move+Lightly+Dustin+O%E2%80%99Halloran" target="_blank" rel="noopener">▶ ฟัง / ค้นหา</a>
+        </div>
+        <div class="track">
+          <div class="num">4</div>
+          <div class="trackinfo"><b>Says</b><span>Nils Frahm</span></div>
+          <a class="listen" href="https://www.youtube.com/results?search_query=Says+Nils+Frahm" target="_blank" rel="noopener">▶ ฟัง / ค้นหา</a>
+        </div>
+        <div class="track">
+          <div class="num">5</div>
+          <div class="trackinfo"><b>Experience</b><span>Ludovico Einaudi</span></div>
+          <a class="listen" href="https://www.youtube.com/results?search_query=Experience+Ludovico+Einaudi" target="_blank" rel="noopener">▶ ฟัง / ค้นหา</a>
+        </div></div>
+    </section>
+    <section class="card" data-subject="ภาษาไทย" data-genre="Acoustic / Piano / Thai Instrumental">
+      <div class="cardhead"><span class="emoji">📚</span><div><h2>ภาษาไทย</h2><p>Acoustic / Piano / Thai Instrumental</p></div></div>
+      <div class="tracks">
+        <div class="track">
+          <div class="num">1</div>
+          <div class="trackinfo"><b>ฤดูที่ฉันเหงา (Instrumental)</b><span>Flure</span></div>
+          <a class="listen" href="https://www.youtube.com/results?search_query=%E0%B8%A4%E0%B8%94%E0%B8%B9%E0%B8%97%E0%B8%B5%E0%B9%88%E0%B8%89%E0%B8%B1%E0%B8%99%E0%B9%80%E0%B8%AB%E0%B8%87%E0%B8%B2+%28Instrumental%29+Flure" target="_blank" rel="noopener">▶ ฟัง / ค้นหา</a>
+        </div>
+        <div class="track">
+          <div class="num">2</div>
+          <div class="trackinfo"><b>ลมหายใจ (Instrumental)</b><span>บอย โกสิยพงษ์</span></div>
+          <a class="listen" href="https://www.youtube.com/results?search_query=%E0%B8%A5%E0%B8%A1%E0%B8%AB%E0%B8%B2%E0%B8%A2%E0%B9%83%E0%B8%88+%28Instrumental%29+%E0%B8%9A%E0%B8%AD%E0%B8%A2+%E0%B9%82%E0%B8%81%E0%B8%AA%E0%B8%B4%E0%B8%A2%E0%B8%9E%E0%B8%87%E0%B8%A9%E0%B9%8C" target="_blank" rel="noopener">▶ ฟัง / ค้นหา</a>
+        </div>
+        <div class="track">
+          <div class="num">3</div>
+          <div class="trackinfo"><b>ความทรงจำ (Instrumental)</b><span>แอม เสาวลักษณ์</span></div>
+          <a class="listen" href="https://www.youtube.com/results?search_query=%E0%B8%84%E0%B8%A7%E0%B8%B2%E0%B8%A1%E0%B8%97%E0%B8%A3%E0%B8%87%E0%B8%88%E0%B8%B3+%28Instrumental%29+%E0%B9%81%E0%B8%AD%E0%B8%A1+%E0%B9%80%E0%B8%AA%E0%B8%B2%E0%B8%A7%E0%B8%A5%E0%B8%B1%E0%B8%81%E0%B8%A9%E0%B8%93%E0%B9%8C" target="_blank" rel="noopener">▶ ฟัง / ค้นหา</a>
+        </div>
+        <div class="track">
+          <div class="num">4</div>
+          <div class="trackinfo"><b>เพียงชายคนนี้ (ไม่ใช่ผู้วิเศษ) (Instrumental)</b><span>เพชร โอสถานุเคราะห์</span></div>
+          <a class="listen" href="https://www.youtube.com/results?search_query=%E0%B9%80%E0%B8%9E%E0%B8%B5%E0%B8%A2%E0%B8%87%E0%B8%8A%E0%B8%B2%E0%B8%A2%E0%B8%84%E0%B8%99%E0%B8%99%E0%B8%B5%E0%B9%89+%28%E0%B9%84%E0%B8%A1%E0%B9%88%E0%B9%83%E0%B8%8A%E0%B9%88%E0%B8%9C%E0%B8%B9%E0%B9%89%E0%B8%A7%E0%B8%B4%E0%B9%80%E0%B8%A8%E0%B8%A9%29+%28Instrumental%29+%E0%B9%80%E0%B8%9E%E0%B8%8A%E0%B8%A3+%E0%B9%82%E0%B8%AD%E0%B8%AA%E0%B8%96%E0%B8%B2%E0%B8%99%E0%B8%B8%E0%B9%80%E0%B8%84%E0%B8%A3%E0%B8%B2%E0%B8%B0%E0%B8%AB%E0%B9%8C" target="_blank" rel="noopener">▶ ฟัง / ค้นหา</a>
+        </div>
+        <div class="track">
+          <div class="num">5</div>
+          <div class="trackinfo"><b>รักคุณเข้าแล้ว (Instrumental)</b><span>BOYdPOD</span></div>
+          <a class="listen" href="https://www.youtube.com/results?search_query=%E0%B8%A3%E0%B8%B1%E0%B8%81%E0%B8%84%E0%B8%B8%E0%B8%93%E0%B9%80%E0%B8%82%E0%B9%89%E0%B8%B2%E0%B9%81%E0%B8%A5%E0%B9%89%E0%B8%A7+%28Instrumental%29+BOYdPOD" target="_blank" rel="noopener">▶ ฟัง / ค้นหา</a>
+        </div></div>
+    </section>
+    <section class="card" data-subject="ภาษาอังกฤษ" data-genre="Pop / Acoustic / Chill">
+      <div class="cardhead"><span class="emoji">🇬🇧</span><div><h2>ภาษาอังกฤษ</h2><p>Pop / Acoustic / Chill</p></div></div>
+      <div class="tracks">
+        <div class="track">
+          <div class="num">1</div>
+          <div class="trackinfo"><b>Count on Me (Instrumental)</b><span>Bruno Mars</span></div>
+          <a class="listen" href="https://www.youtube.com/results?search_query=Count+on+Me+%28Instrumental%29+Bruno+Mars" target="_blank" rel="noopener">▶ ฟัง / ค้นหา</a>
+        </div>
+        <div class="track">
+          <div class="num">2</div>
+          <div class="trackinfo"><b>Photograph (Instrumental)</b><span>Ed Sheeran</span></div>
+          <a class="listen" href="https://www.youtube.com/results?search_query=Photograph+%28Instrumental%29+Ed+Sheeran" target="_blank" rel="noopener">▶ ฟัง / ค้นหา</a>
+        </div>
+        <div class="track">
+          <div class="num">3</div>
+          <div class="trackinfo"><b>Perfect (Instrumental)</b><span>Ed Sheeran</span></div>
+          <a class="listen" href="https://www.youtube.com/results?search_query=Perfect+%28Instrumental%29+Ed+Sheeran" target="_blank" rel="noopener">▶ ฟัง / ค้นหา</a>
+        </div>
+        <div class="track">
+          <div class="num">4</div>
+          <div class="trackinfo"><b>Best Day of My Life (Instrumental)</b><span>American Authors</span></div>
+          <a class="listen" href="https://www.youtube.com/results?search_query=Best+Day+of+My+Life+%28Instrumental%29+American+Authors" target="_blank" rel="noopener">▶ ฟัง / ค้นหา</a>
+        </div>
+        <div class="track">
+          <div class="num">5</div>
+          <div class="trackinfo"><b>Home (Instrumental)</b><span>Phillip Phillips</span></div>
+          <a class="listen" href="https://www.youtube.com/results?search_query=Home+%28Instrumental%29+Phillip+Phillips" target="_blank" rel="noopener">▶ ฟัง / ค้นหา</a>
+        </div></div>
+    </section>
+    <section class="card" data-subject="สังคมศึกษา" data-genre="World / Cinematic / Folk">
+      <div class="cardhead"><span class="emoji">🌏</span><div><h2>สังคมศึกษา</h2><p>World / Cinematic / Folk</p></div></div>
+      <div class="tracks">
+        <div class="track">
+          <div class="num">1</div>
+          <div class="trackinfo"><b>Arrival of the Birds</b><span>The Cinematic Orchestra</span></div>
+          <a class="listen" href="https://www.youtube.com/results?search_query=Arrival+of+the+Birds+The+Cinematic+Orchestra" target="_blank" rel="noopener">▶ ฟัง / ค้นหา</a>
+        </div>
+        <div class="track">
+          <div class="num">2</div>
+          <div class="trackinfo"><b>Experience</b><span>Ludovico Einaudi</span></div>
+          <a class="listen" href="https://www.youtube.com/results?search_query=Experience+Ludovico+Einaudi" target="_blank" rel="noopener">▶ ฟัง / ค้นหา</a>
+        </div>
+        <div class="track">
+          <div class="num">3</div>
+          <div class="trackinfo"><b>Hoppípolla</b><span>Sigur Rós</span></div>
+          <a class="listen" href="https://www.youtube.com/results?search_query=Hopp%C3%ADpolla+Sigur+R%C3%B3s" target="_blank" rel="noopener">▶ ฟัง / ค้นหา</a>
+        </div>
+        <div class="track">
+          <div class="num">4</div>
+          <div class="trackinfo"><b>Outro</b><span>M83</span></div>
+          <a class="listen" href="https://www.youtube.com/results?search_query=Outro+M83" target="_blank" rel="noopener">▶ ฟัง / ค้นหา</a>
+        </div>
+        <div class="track">
+          <div class="num">5</div>
+          <div class="trackinfo"><b>The Heart Asks Pleasure First</b><span>Michael Nyman</span></div>
+          <a class="listen" href="https://www.youtube.com/results?search_query=The+Heart+Asks+Pleasure+First+Michael+Nyman" target="_blank" rel="noopener">▶ ฟัง / ค้นหา</a>
+        </div></div>
+    </section>
+    <section class="card" data-subject="เศรษฐศาสตร์ / การเงิน" data-genre="Corporate / Modern Electronic">
+      <div class="cardhead"><span class="emoji">💰</span><div><h2>เศรษฐศาสตร์ / การเงิน</h2><p>Corporate / Modern Electronic</p></div></div>
+      <div class="tracks">
+        <div class="track">
+          <div class="num">1</div>
+          <div class="trackinfo"><b>The Business (Instrumental)</b><span>Tiësto</span></div>
+          <a class="listen" href="https://www.youtube.com/results?search_query=The+Business+%28Instrumental%29+Ti%C3%ABsto" target="_blank" rel="noopener">▶ ฟัง / ค้นหา</a>
+        </div>
+        <div class="track">
+          <div class="num">2</div>
+          <div class="trackinfo"><b>On Top of the World (Instrumental)</b><span>Imagine Dragons</span></div>
+          <a class="listen" href="https://www.youtube.com/results?search_query=On+Top+of+the+World+%28Instrumental%29+Imagine+Dragons" target="_blank" rel="noopener">▶ ฟัง / ค้นหา</a>
+        </div>
+        <div class="track">
+          <div class="num">3</div>
+          <div class="trackinfo"><b>Good Life (Instrumental)</b><span>OneRepublic</span></div>
+          <a class="listen" href="https://www.youtube.com/results?search_query=Good+Life+%28Instrumental%29+OneRepublic" target="_blank" rel="noopener">▶ ฟัง / ค้นหา</a>
+        </div>
+        <div class="track">
+          <div class="num">4</div>
+          <div class="trackinfo"><b>Walking on a Dream (Instrumental)</b><span>Empire of the Sun</span></div>
+          <a class="listen" href="https://www.youtube.com/results?search_query=Walking+on+a+Dream+%28Instrumental%29+Empire+of+the+Sun" target="_blank" rel="noopener">▶ ฟัง / ค้นหา</a>
+        </div>
+        <div class="track">
+          <div class="num">5</div>
+          <div class="trackinfo"><b>A Sky Full of Stars (Instrumental)</b><span>Coldplay</span></div>
+          <a class="listen" href="https://www.youtube.com/results?search_query=A+Sky+Full+of+Stars+%28Instrumental%29+Coldplay" target="_blank" rel="noopener">▶ ฟัง / ค้นหา</a>
+        </div></div>
+    </section>
+    <section class="card" data-subject="ประวัติศาสตร์" data-genre="Orchestral / Epic / Cinematic">
+      <div class="cardhead"><span class="emoji">🏛️</span><div><h2>ประวัติศาสตร์</h2><p>Orchestral / Epic / Cinematic</p></div></div>
+      <div class="tracks">
+        <div class="track">
+          <div class="num">1</div>
+          <div class="trackinfo"><b>Now We Are Free</b><span>Hans Zimmer</span></div>
+          <a class="listen" href="https://www.youtube.com/results?search_query=Now+We+Are+Free+Hans+Zimmer" target="_blank" rel="noopener">▶ ฟัง / ค้นหา</a>
+        </div>
+        <div class="track">
+          <div class="num">2</div>
+          <div class="trackinfo"><b>Honor Him</b><span>Hans Zimmer</span></div>
+          <a class="listen" href="https://www.youtube.com/results?search_query=Honor+Him+Hans+Zimmer" target="_blank" rel="noopener">▶ ฟัง / ค้นหา</a>
+        </div>
+        <div class="track">
+          <div class="num">3</div>
+          <div class="trackinfo"><b>The Last Samurai</b><span>Hans Zimmer</span></div>
+          <a class="listen" href="https://www.youtube.com/results?search_query=The+Last+Samurai+Hans+Zimmer" target="_blank" rel="noopener">▶ ฟัง / ค้นหา</a>
+        </div>
+        <div class="track">
+          <div class="num">4</div>
+          <div class="trackinfo"><b>Victory</b><span>Two Steps From Hell</span></div>
+          <a class="listen" href="https://www.youtube.com/results?search_query=Victory+Two+Steps+From+Hell" target="_blank" rel="noopener">▶ ฟัง / ค้นหา</a>
+        </div>
+        <div class="track">
+          <div class="num">5</div>
+          <div class="trackinfo"><b>Protectors of the Earth</b><span>Two Steps From Hell</span></div>
+          <a class="listen" href="https://www.youtube.com/results?search_query=Protectors+of+the+Earth+Two+Steps+From+Hell" target="_blank" rel="noopener">▶ ฟัง / ค้นหา</a>
+        </div></div>
+    </section>
+    <section class="card" data-subject="ศิลปะ" data-genre="Jazz / Lo-fi / Classical">
+      <div class="cardhead"><span class="emoji">🎨</span><div><h2>ศิลปะ</h2><p>Jazz / Lo-fi / Classical</p></div></div>
+      <div class="tracks">
+        <div class="track">
+          <div class="num">1</div>
+          <div class="trackinfo"><b>Clair de Lune</b><span>Claude Debussy</span></div>
+          <a class="listen" href="https://www.youtube.com/results?search_query=Clair+de+Lune+Claude+Debussy" target="_blank" rel="noopener">▶ ฟัง / ค้นหา</a>
+        </div>
+        <div class="track">
+          <div class="num">2</div>
+          <div class="trackinfo"><b>River Flows in You</b><span>Yiruma</span></div>
+          <a class="listen" href="https://www.youtube.com/results?search_query=River+Flows+in+You+Yiruma" target="_blank" rel="noopener">▶ ฟัง / ค้นหา</a>
+        </div>
+        <div class="track">
+          <div class="num">3</div>
+          <div class="trackinfo"><b>Luv(sic)</b><span>Nujabes</span></div>
+          <a class="listen" href="https://www.youtube.com/results?search_query=Luv%28sic%29+Nujabes" target="_blank" rel="noopener">▶ ฟัง / ค้นหา</a>
+        </div>
+        <div class="track">
+          <div class="num">4</div>
+          <div class="trackinfo"><b>Feather</b><span>Nujabes</span></div>
+          <a class="listen" href="https://www.youtube.com/results?search_query=Feather+Nujabes" target="_blank" rel="noopener">▶ ฟัง / ค้นหา</a>
+        </div>
+        <div class="track">
+          <div class="num">5</div>
+          <div class="trackinfo"><b>Gymnopédie No. 1</b><span>Erik Satie</span></div>
+          <a class="listen" href="https://www.youtube.com/results?search_query=Gymnop%C3%A9die+No.+1+Erik+Satie" target="_blank" rel="noopener">▶ ฟัง / ค้นหา</a>
+        </div></div>
+    </section>
+    <section class="card" data-subject="ดนตรี" data-genre="เลือกตามแนวเพลง / ศิลปิน / หัวข้อ">
+      <div class="cardhead"><span class="emoji">🎵</span><div><h2>ดนตรี</h2><p>เลือกตามแนวเพลง / ศิลปิน / หัวข้อ</p></div></div>
+      <div class="tracks">
+        <div class="track">
+          <div class="num">1</div>
+          <div class="trackinfo"><b>Bohemian Rhapsody</b><span>Queen</span></div>
+          <a class="listen" href="https://www.youtube.com/results?search_query=Bohemian+Rhapsody+Queen" target="_blank" rel="noopener">▶ ฟัง / ค้นหา</a>
+        </div>
+        <div class="track">
+          <div class="num">2</div>
+          <div class="trackinfo"><b>Smells Like Teen Spirit</b><span>Nirvana</span></div>
+          <a class="listen" href="https://www.youtube.com/results?search_query=Smells+Like+Teen+Spirit+Nirvana" target="_blank" rel="noopener">▶ ฟัง / ค้นหา</a>
+        </div>
+        <div class="track">
+          <div class="num">3</div>
+          <div class="trackinfo"><b>Take Five</b><span>Dave Brubeck Quartet</span></div>
+          <a class="listen" href="https://www.youtube.com/results?search_query=Take+Five+Dave+Brubeck+Quartet" target="_blank" rel="noopener">▶ ฟัง / ค้นหา</a>
+        </div>
+        <div class="track">
+          <div class="num">4</div>
+          <div class="trackinfo"><b>So What</b><span>Miles Davis</span></div>
+          <a class="listen" href="https://www.youtube.com/results?search_query=So+What+Miles+Davis" target="_blank" rel="noopener">▶ ฟัง / ค้นหา</a>
+        </div>
+        <div class="track">
+          <div class="num">5</div>
+          <div class="trackinfo"><b>Billie Jean</b><span>Michael Jackson</span></div>
+          <a class="listen" href="https://www.youtube.com/results?search_query=Billie+Jean+Michael+Jackson" target="_blank" rel="noopener">▶ ฟัง / ค้นหา</a>
+        </div></div>
+    </section>
+    <section class="card" data-subject="สุขศึกษา / พละศึกษา" data-genre="Energetic / Pop / Rock">
+      <div class="cardhead"><span class="emoji">⚽</span><div><h2>สุขศึกษา / พละศึกษา</h2><p>Energetic / Pop / Rock</p></div></div>
+      <div class="tracks">
+        <div class="track">
+          <div class="num">1</div>
+          <div class="trackinfo"><b>Believer (Instrumental)</b><span>Imagine Dragons</span></div>
+          <a class="listen" href="https://www.youtube.com/results?search_query=Believer+%28Instrumental%29+Imagine+Dragons" target="_blank" rel="noopener">▶ ฟัง / ค้นหา</a>
+        </div>
+        <div class="track">
+          <div class="num">2</div>
+          <div class="trackinfo"><b>The Nights (Instrumental)</b><span>Avicii</span></div>
+          <a class="listen" href="https://www.youtube.com/results?search_query=The+Nights+%28Instrumental%29+Avicii" target="_blank" rel="noopener">▶ ฟัง / ค้นหา</a>
+        </div>
+        <div class="track">
+          <div class="num">3</div>
+          <div class="trackinfo"><b>Can&#x27;t Hold Us (Instrumental)</b><span>Macklemore &amp; Ryan Lewis</span></div>
+          <a class="listen" href="https://www.youtube.com/results?search_query=Can%27t+Hold+Us+%28Instrumental%29+Macklemore+%26+Ryan+Lewis" target="_blank" rel="noopener">▶ ฟัง / ค้นหา</a>
+        </div>
+        <div class="track">
+          <div class="num">4</div>
+          <div class="trackinfo"><b>On Top of the World (Instrumental)</b><span>Imagine Dragons</span></div>
+          <a class="listen" href="https://www.youtube.com/results?search_query=On+Top+of+the+World+%28Instrumental%29+Imagine+Dragons" target="_blank" rel="noopener">▶ ฟัง / ค้นหา</a>
+        </div>
+        <div class="track">
+          <div class="num">5</div>
+          <div class="trackinfo"><b>Hall of Fame (Instrumental)</b><span>The Script</span></div>
+          <a class="listen" href="https://www.youtube.com/results?search_query=Hall+of+Fame+%28Instrumental%29+The+Script" target="_blank" rel="noopener">▶ ฟัง / ค้นหา</a>
+        </div></div>
+    </section>
+    <section class="card" data-subject="จิตวิทยา / แนะแนว" data-genre="Piano / Ambient / Emotional">
+      <div class="cardhead"><span class="emoji">🧠</span><div><h2>จิตวิทยา / แนะแนว</h2><p>Piano / Ambient / Emotional</p></div></div>
+      <div class="tracks">
+        <div class="track">
+          <div class="num">1</div>
+          <div class="trackinfo"><b>Nuvole Bianche</b><span>Ludovico Einaudi</span></div>
+          <a class="listen" href="https://www.youtube.com/results?search_query=Nuvole+Bianche+Ludovico+Einaudi" target="_blank" rel="noopener">▶ ฟัง / ค้นหา</a>
+        </div>
+        <div class="track">
+          <div class="num">2</div>
+          <div class="trackinfo"><b>Comptine d’un autre été</b><span>Yann Tiersen</span></div>
+          <a class="listen" href="https://www.youtube.com/results?search_query=Comptine+d%E2%80%99un+autre+%C3%A9t%C3%A9+Yann+Tiersen" target="_blank" rel="noopener">▶ ฟัง / ค้นหา</a>
+        </div>
+        <div class="track">
+          <div class="num">3</div>
+          <div class="trackinfo"><b>Kiss the Rain</b><span>Yiruma</span></div>
+          <a class="listen" href="https://www.youtube.com/results?search_query=Kiss+the+Rain+Yiruma" target="_blank" rel="noopener">▶ ฟัง / ค้นหา</a>
+        </div>
+        <div class="track">
+          <div class="num">4</div>
+          <div class="trackinfo"><b>River Flows in You</b><span>Yiruma</span></div>
+          <a class="listen" href="https://www.youtube.com/results?search_query=River+Flows+in+You+Yiruma" target="_blank" rel="noopener">▶ ฟัง / ค้นหา</a>
+        </div>
+        <div class="track">
+          <div class="num">5</div>
+          <div class="trackinfo"><b>Near Light</b><span>Ólafur Arnalds</span></div>
+          <a class="listen" href="https://www.youtube.com/results?search_query=Near+Light+%C3%93lafur+Arnalds" target="_blank" rel="noopener">▶ ฟัง / ค้นหา</a>
+        </div></div>
+    </section>
+    <section class="card" data-subject="สิ่งแวดล้อม / โลก" data-genre="Nature / Ambient / Emotional">
+      <div class="cardhead"><span class="emoji">🌱</span><div><h2>สิ่งแวดล้อม / โลก</h2><p>Nature / Ambient / Emotional</p></div></div>
+      <div class="tracks">
+        <div class="track">
+          <div class="num">1</div>
+          <div class="trackinfo"><b>What a Wonderful World (Instrumental)</b><span>Louis Armstrong</span></div>
+          <a class="listen" href="https://www.youtube.com/results?search_query=What+a+Wonderful+World+%28Instrumental%29+Louis+Armstrong" target="_blank" rel="noopener">▶ ฟัง / ค้นหา</a>
+        </div>
+        <div class="track">
+          <div class="num">2</div>
+          <div class="trackinfo"><b>Outro</b><span>M83</span></div>
+          <a class="listen" href="https://www.youtube.com/results?search_query=Outro+M83" target="_blank" rel="noopener">▶ ฟัง / ค้นหา</a>
+        </div>
+        <div class="track">
+          <div class="num">3</div>
+          <div class="trackinfo"><b>Arrival of the Birds</b><span>The Cinematic Orchestra</span></div>
+          <a class="listen" href="https://www.youtube.com/results?search_query=Arrival+of+the+Birds+The+Cinematic+Orchestra" target="_blank" rel="noopener">▶ ฟัง / ค้นหา</a>
+        </div>
+        <div class="track">
+          <div class="num">4</div>
+          <div class="trackinfo"><b>Holocene (Instrumental)</b><span>Bon Iver</span></div>
+          <a class="listen" href="https://www.youtube.com/results?search_query=Holocene+%28Instrumental%29+Bon+Iver" target="_blank" rel="noopener">▶ ฟัง / ค้นหา</a>
+        </div>
+        <div class="track">
+          <div class="num">5</div>
+          <div class="trackinfo"><b>Bloom</b><span>The Paper Kites</span></div>
+          <a class="listen" href="https://www.youtube.com/results?search_query=Bloom+The+Paper+Kites" target="_blank" rel="noopener">▶ ฟัง / ค้นหา</a>
+        </div></div>
+    </section>
+    <section class="card" data-subject="ศาสนา / คริสต์ศาสนา" data-genre="Choir / Piano / Sacred">
+      <div class="cardhead"><span class="emoji">⛪</span><div><h2>ศาสนา / คริสต์ศาสนา</h2><p>Choir / Piano / Sacred</p></div></div>
+      <div class="tracks">
+        <div class="track">
+          <div class="num">1</div>
+          <div class="trackinfo"><b>The Prayer (Instrumental)</b><span>Celine Dion &amp; Andrea Bocelli</span></div>
+          <a class="listen" href="https://www.youtube.com/results?search_query=The+Prayer+%28Instrumental%29+Celine+Dion+%26+Andrea+Bocelli" target="_blank" rel="noopener">▶ ฟัง / ค้นหา</a>
+        </div>
+        <div class="track">
+          <div class="num">2</div>
+          <div class="trackinfo"><b>Ave Maria</b><span>Franz Schubert</span></div>
+          <a class="listen" href="https://www.youtube.com/results?search_query=Ave+Maria+Franz+Schubert" target="_blank" rel="noopener">▶ ฟัง / ค้นหา</a>
+        </div>
+        <div class="track">
+          <div class="num">3</div>
+          <div class="trackinfo"><b>Panis Angelicus</b><span>César Franck</span></div>
+          <a class="listen" href="https://www.youtube.com/results?search_query=Panis+Angelicus+C%C3%A9sar+Franck" target="_blank" rel="noopener">▶ ฟัง / ค้นหา</a>
+        </div>
+        <div class="track">
+          <div class="num">4</div>
+          <div class="trackinfo"><b>Amazing Grace (Instrumental)</b><span>Traditional</span></div>
+          <a class="listen" href="https://www.youtube.com/results?search_query=Amazing+Grace+%28Instrumental%29+Traditional" target="_blank" rel="noopener">▶ ฟัง / ค้นหา</a>
+        </div>
+        <div class="track">
+          <div class="num">5</div>
+          <div class="trackinfo"><b>Nearer, My God, to Thee (Instrumental)</b><span>Traditional</span></div>
+          <a class="listen" href="https://www.youtube.com/results?search_query=Nearer%2C+My+God%2C+to+Thee+%28Instrumental%29+Traditional" target="_blank" rel="noopener">▶ ฟัง / ค้นหา</a>
+        </div></div>
+    </section></div>
+</main>
+<footer>Presentation Music Library • ใช้เพื่อการศึกษา • เพลงตัวอย่างอาจมีลิขสิทธิ์</footer>
+<script>
+const cards=[...document.querySelectorAll('.card')], search=document.querySelector('#search'), genre=document.querySelector('#genre');
+const genres=[...new Set(cards.map(c=>c.dataset.genre))]; genres.forEach(g=>{let o=document.createElement('option');o.value=g;o.textContent=g;genre.appendChild(o)});
+function filter(){let q=search.value.toLowerCase(),g=genre.value;cards.forEach(c=>{c.style.display=(!q||c.innerText.toLowerCase().includes(q))&&(!g||c.dataset.genre===g)?'block':'none'})}
+search.addEventListener('input',filter);genre.addEventListener('change',filter);
+</script></body></html>
